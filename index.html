@@ -8,37 +8,90 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    <link rel="shortcut icon" type="image/png"
+        href="https://cdn3.iconfinder.com/data/icons/spring-2-1/30/Rainbow-512.png" />
+    <link rel="shortcut icon" type="image/png"
+        href="https://cdn3.iconfinder.com/data/icons/spring-2-1/30/Rainbow-512.png" />
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
 
 
     <script src="js/controller.js"></script>
+
 </head>
 
 <body ng-app="myApp">
-    <div class="container">
+    <div class="container bg-light mt-2 py-3">
         <!-- hacer un DIV para poner el controlador -->
         <div ng-controller="controller1">
-            <div class="jumbotron mt-3">
+            <div class="jumbotron">
                 <h1>Primera Prueba en Angular JS</h1>
+                <p class="lead">Algunas pruebas en AngularJS</p>
             </div>
             <div class="row">
-                <div class="col-6">
-                    <h2 class="pl-3">AngularJS - Controller 1 Basics</h2>
+                <div class="col-6 pl-3">
+                    <h4>Expressions</h4>
+                    <h5>3 + 4 = {{ 3 + 4}}</h5>
+                    <h6>{{ mensaje }}</h6>
                     <br>
-                    <h3 class="pl-3">Expressions</h3>
-                    <h5 class="pl-3">3 + 4 = {{ 3 + 4}}</h5>
-                    <h6 class="pl-3">{{ mensaje }}</h6>
+                    <div class="alert alert-secondary">
+                        <h4>Contadores</h4>
+                        <button class="btn btn-dark " ng-click="counter=counter+1">Count+ {{counter}}</button>
+                        <button class="btn btn-dark " ng-click="counter2=counter2-1">Count- {{counter2}}</button>
+                    </div>
+                    <div>
+                        <h4>Meme Generator</h4>
+                        <p>Escribi algo en el campo de abajo</p>
+                        <input type="text" ng-model="value" class="table-width"><br>
+                        <button class="btn btn-pink mt-1" ng-click="value=''">Clear text</button>
+                        <button class="btn btn-pink mt-1"
+                            ng-click="show1=!show1">{{show1? 'Load text': 'Hide text'}}</button>
+                    </div>
+                    <br>
+                    <div class="image-meme align-self-end">
+                        <img src="/img/hay_tabla.jpg" class="image-meme align-self-end" alt="">
+                        <div class="lbl-custom text-center justify-self-center" ng-show="!show1">{{value}}</div>
+                    </div>
+
                 </div>
                 <div class="col-6 text-right">
-                    <h2 class="pr-3">AngularJS - Controller 1 - buttons</h2>
-                    <br>
                     <!-- Mostrar u ocultar un parrafo -->
                     <h4 class="pl-3">Mostrar/ocultar un parrafo</h4>
-                    <button class="btn bg-dark text-white mb-2" ng-click="show=!show">{{show? 'Ocultar':'Mostrar'}}</button>
-                    <p class="alert alert-dark" ng-show="show">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat deserunt possimus est neque. Architecto, libero magnam dignissimos officiis quasi reiciendis quaerat nostrum inventore omnis at repudiandae ut necessitatibus possimus amet.</p>
+                    <button class="btn bg-dark text-white mb-2"
+                        ng-click="show=!show">{{show? 'Mostrar':'Ocultar'}}</button>
+                    <p class="alert alert-secondary" ng-show="!show">Lorem ipsum dolor sit, amet consectetur adipisicing
+                        elit.
+                        Repellat deserunt possimus est neque. Architecto, libero magnam dignissimos officiis quasi
+                        reiciendis quaerat nostrum inventore omnis at repudiandae ut necessitatibus possimus amet.</p>
+                    <div class="alert alert-secondary">
+                        <p>Contador 3: {{contador3}}</p>
+                        <button class="btn btn-success my-2" ng-click="contador3=contador3+1">Increase</button>
+                        <button class="btn btn-success my-2" ng-click="contador3=contador3-1">Decrease</button>
+                    </div>
+                    <br>
+                    <div>
+                        <!-- Crear una tabla desde un array -->
+                        <h4>Table</h4>
+                        <table class="table table-width">
+                            <tr class="bg-secondary">
+                                <th>Name</th>
+                                <th>Lastname</th>
+                                <th>Age</th>
+                                <th>Student</th>
+                                <th>Picture</th>
+                            </tr>
+                            <tr class="bg-ligth" ng-repeat="person in people">
+                                <td>{{person.name}}</td>
+                                <td>{{person.lastname}}</td>
+                                <td>{{person.age}}</td>
+                                <td>{{person.study? 'Yes':'No'}}</td>
+                                <td><img ng-src="{{person.picture}}" width="50" alt=""></td>
+                            </tr>
+                        </table>
+                    </div>
+                   
                 </div>
             </div>
         </div>
