@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+
+
+    <script src="js/controller.js"></script>
+</head>
+
+<body ng-app="myApp">
+    <div class="container">
+        <!-- hacer un DIV para poner el controlador -->
+        <div ng-controller="controller1">
+            <div class="jumbotron mt-3">
+                <h1>Primera Prueba en Angular JS</h1>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <h2 class="pl-3">AngularJS - Controller 1 Basics</h2>
+                    <br>
+                    <h3 class="pl-3">Expressions</h3>
+                    <h5 class="pl-3">3 + 4 = {{ 3 + 4}}</h5>
+                    <h6 class="pl-3">{{ mensaje }}</h6>
+                </div>
+                <div class="col-6 text-right">
+                    <h2 class="pr-3">AngularJS - Controller 1 - buttons</h2>
+                    <br>
+                    <!-- Mostrar u ocultar un parrafo -->
+                    <h4 class="pl-3">Mostrar/ocultar un parrafo</h4>
+                    <button class="btn bg-dark text-white mb-2" ng-click="show=!show">{{show? 'Ocultar':'Mostrar'}}</button>
+                    <p class="alert alert-dark" ng-show="show">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat deserunt possimus est neque. Architecto, libero magnam dignissimos officiis quasi reiciendis quaerat nostrum inventore omnis at repudiandae ut necessitatibus possimus amet.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
